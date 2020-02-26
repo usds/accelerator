@@ -1,14 +1,22 @@
 <!doctype html>
 <html lang="en">
-	<meta charset="utf-8">
-	<head>
-		{% include _head.html %}
-	</head>
-	<body>
+  <meta charset="utf-8">
+  <head>
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="viewport" content="width=device-width">
 
-		{{ content }}
-		
-		<script src="{{ relative }}assets/javascripts/application.js"></script>
-		
-	</body>
+    {% assign lvl = page.url | append:'X' | split:'/' | size %}
+    {% capture relative %}{% for i in (3..lvl) %}../{% endfor %}{% endcapture %}
+
+    <link rel="stylesheet" href="{{ relative }}assets/uswds-2.5.0/css/uswds.css">
+
+    <meta name="robots" content="noindex">
+  </head>
+  <body>
+
+    {{ content }}
+
+    <script src="{{ relative }}assets/uswds-2.5.0/js/uswds.js"></script>
+
+  </body>
 </html>
