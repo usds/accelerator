@@ -12,6 +12,6 @@ Build natively
 
 Build with docker:
 
-``` bash
-docker-compose up
-```
+1. [install docker](https://docs.docker.com/#docker-products)
+2. [install docker compose](https://docs.docker.com/compose/install/)
+3. Build site `docker-compose up`
